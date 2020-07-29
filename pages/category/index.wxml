@@ -1,0 +1,29 @@
+<!--pages/category/index.wxml-->
+<view class="category">
+	<scroll-view class="navLeft" scroll-y>
+		<block wx:for="{{navLeft}}" wx:key="index">
+			<view class="leftItem {{currentIndex==index?'item-active':''}}" bindtap="current" data-index="{{index}}">
+				{{item}}
+			</view>
+		</block>
+	</scroll-view>
+	<scroll-view class="navRight" scroll-y>
+		<view class="" wx:if='{{navRight[currentIndex]}}'>
+			<block wx:for='{{navRight[currentIndex]}}' wx:for-item='item' wx:key="index">
+				<view class="item">
+					<view class="title"> {{item.title}}</view>
+
+					<view class='wrap'>
+						<block wx:key="index" wx:for="{{item.desc}}" wx:for-item="list">
+							<view class='list' data-txt="{{list.text}}" bindtap='showListView'>
+								<image class='list-img' src='{{list.img}}'></image>
+								<text class='list-text'>{{list.text}}</text>
+							</view>
+						</block>
+					</view>
+
+				</view>
+			</block>
+		</view>
+	</scroll-view>
+</view>
