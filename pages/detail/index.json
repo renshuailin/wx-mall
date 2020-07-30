@@ -1,3 +1,7 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "info":"/components/info/info",
+    "baitiao":"/components/baitiao/baitiao",
+    "cart":"/components/cart/cart"
+  }
 }

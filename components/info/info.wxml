@@ -1,0 +1,6 @@
+<!--components/info/info.wxml-->
+<view class="pay">
+  <text class="title">{{title}}</text>
+  <text class="desc">{{desc}}</text>
+  <text class="icon" bindtap="popview">...</text>
+</view>

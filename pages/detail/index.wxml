@@ -7,4 +7,30 @@
 			</swiper-item>
 		</block>
 	</swiper>
+	<view class='buy_area'>
+		<view class='textWrap'>
+			<text>{{itemData.title}}</text>
+		</view>
+		<view class='priceWrap'>
+			<text>¥{{itemData.price}}</text>
+		</view>
+		<!-- pay -->
+		<info title='支付' bind:popview='popbaitiao' desc='{{selectItem.desc}}'></info>
+		<!-- select -->
+		<info title='已选' bind:popview='popbuy' desc='{{itemData.count}}件'></info>
+
+	</view>
+	<!-- 购物车 -->
+	<view class="bar">
+		<view class="icon-cart" bindtap="showCart">
+			<text class="badge" wx:if='{{badge>0}}'>{{badge}}</text>
+			<image src='/image/cart.png'></image>
+			<text>购物车</text>
+		</view>
+		<view class="cart-btn">
+			<button bindtap="addCart">加入购物车</button>
+		</view>
+	</view>
+	<baitiao bind:update='update' baitiao='{{baitiao}}' hideShow='{{hideShow}}' />
+	<cart bind:buyEvent='addCart' bind:ongetCount='upDateCount' hideBuy='{{hideBuy}}' data='{{itemData}}' />
 </view>

@@ -1,0 +1,31 @@
+<view class="pop" data-target="self" catchtap="hide" hidden="{{hideShow}}">
+	<view class="mian">
+		<!-- 头部 -->
+		<view class="header">
+			打白条购买
+			<text data-target="self" catchtap="hide">X</text>
+		</view>
+    <!-- center -->
+    <view class="body">
+      <block wx:for='{{baitiao}}' wx:key='index'>
+        <view class="item" catchtap="select" data-index="{{index}}">
+          <image wx:if='{{item.select}}'  src='/image/selected.png'></image>
+
+          <image wx:else src='/image/unselect.png'></image>
+          <view class="detail">
+            <text class="dec">{{item.desc}}</text>
+            <text class="tip">{{item.tip}}</text>
+          </view>
+        </view>
+      </block>
+    </view>
+		<!-- foot -->
+    <view class="btn">
+      <button bindtap="make">立即分期</button>
+    
+    </view>
+
+
+
+	</view>
+</view>
