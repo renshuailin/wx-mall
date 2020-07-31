@@ -15,7 +15,8 @@ Page({
     },
     hideShow: true,
     hideBuy: true,
-    badge:0
+    badge:0,
+    
   },
 
   /**
@@ -46,7 +47,7 @@ Page({
 
         wx.hideLoading()
 
-        console.log(result.partData);
+        // console.log(result.partData);
       }
     })
   },

@@ -5,22 +5,22 @@
 	</view>
 	<view wx:else class="section">
 		<block wx:for='{{cartArray}}' wx:key='index'>
-			<view class="good_list {{item.isTouchMove ? 'touch-move-active' : ''}}" bindtap='switchGoodDetail' data-index="{{index}}" bindtouchstart="touchstart" bindtouchmove="touchmove">
+			<view class="good_list {{item.isMove ? 'touch-move-active' : ''}}"  bindtouchstart="touchstart" bindtouchmove="touchmove">
 				<view class='content'>
 					<view class='select_icon' catchtap='selectGood' data-index='{{index}}'>
 						<image wx:if='{{item.select}}' src='/image/selected.png'></image>
 						<image class='icon' wx:else src='/image/unselect.png'></image>
 					</view>
 					<view class='goods'>
-						<image class='good_img' src='{{item.loopImgUrl[0]}}'></image>
+						<image class='good_img' bindtap='switchGoodDetail' data-index="{{index}}" src='{{item.loopImgUrl[0]}}'></image>
 						<view class='good_info'>
-							<view class='good_title'>
+							<view class='good_title' bindtap='switchGoodDetail' data-index="{{index}}">
 								<text>{{item.title}}</text>
 							</view>
 							<view class='good_price'>
 								<text class='price'>{{item.price}}</text>
 								<!-- 商品数量 -->
-								<amount count='{{item.total}}' data-index='{{index}}' bind:change='getCount'></amount>
+								<amount count='{{item.total}}' data-index='{{index}}' bind:change='getCount' bind:sub='sub' bind:add='add'></amount>
 
 							</view>
 						</view>
@@ -40,7 +40,8 @@
 			</view>
 			<view class='total'>
 				<text>合计:</text>
-				<text class='money'>¥{{money}}</text>
+				<text class='money' wx:if='{{count}}'>¥{{money}}</text>
+				<text class='money' wx:else>¥0.00</text>
 			</view>
 			<view class='btn_amount'>
 				<button bindtap='setAccount' disabled='{{count < 1}}'>去结算({{count}})</button>

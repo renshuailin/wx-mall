@@ -5,7 +5,8 @@
     "pages/home/index",
     "pages/cart/index",
     "pages/me/index",
-    "pages/detail/index"
+    "pages/detail/index",
+    "pages/order/index"
   ],
   "window":{
     "backgroundTextStyle":"light",

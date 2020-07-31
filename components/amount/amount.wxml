@@ -1,5 +1,5 @@
 <view class="num">
-  <button class="btn" catchtap="sub">-</button>
+  <button class="btn" catchtap="sub" disabled='{{count<=1}}'>-</button>
   <input type="number" bindinput="change" value="{{count}}"></input>
   <button class="btn" catchtap="add">+</button>
 </view>
